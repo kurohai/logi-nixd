@@ -1,14 +1,18 @@
+#!/usr/bin/env python
+
+
 import sys
 import time
 import usb
 import threading
 import logging
-from g19_mapper import G19Mapper
-from g19_receivers import G19Receiver
-from controllers import LogitechKeyboardController
+from .g19_mapper import G19Mapper
+from .g19_receivers import G19Receiver
+from .controllers import LogitechKeyboardController
+from .logutil import get_logger
 
+log = get_logger(__name__)
 
-log = logging.Logger(__name__)
 handler = logging.StreamHandler()
 handler.setLevel(logging.DEBUG)
 log.addHandler(handler)
@@ -29,6 +33,7 @@ class LogitechKeyboard(object):
         self.__key_mapper = G19Mapper(self)
         self.__key_receiver.add_input_processor(self.__key_mapper.get_input_processor())
         self.running = True
+        log.info('Logitech Keyboard Obj: {0}'.format(self))
 
     def start_event_handling(self):
         '''Start event processing (aka keyboard driver).
@@ -37,6 +42,7 @@ class LogitechKeyboard(object):
 
         '''
         # self.stop_event_handling()
+        log.info('Starting event processing.')
         self.__thread_display = threading.Thread(
             target=self.__key_receiver.run)
         self.__key_receiver.start()

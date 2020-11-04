@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-python ./start.py
+
+./venv/bin/python ./start.py
