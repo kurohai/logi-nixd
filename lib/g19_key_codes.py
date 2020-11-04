@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+
+
+from .logutil import get_logger
+
+log = get_logger(__name__)
+
+
 class Key(object):
     '''Static container containing all keys.'''
 

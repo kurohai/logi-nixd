@@ -1,8 +1,11 @@
+#!/usr/bin/env python
+
+
 import json
 import os
 import sys
 from pprint import pprint
-from dicto import dicto
+from .dicto import dicto
 import binascii
 
 

@@ -1,9 +1,16 @@
-from g19_key_codes import (Data, Key)
-from runnable import Runnable
+#!/usr/bin/env python
+
+
+from .g19_key_codes import (Data, Key)
+from .runnable import Runnable
 
 import threading
 import time
 import virtkey
+from .logutil import get_logger
+
+log = get_logger(__name__)
+
 
 class InputProcessor(object):
     '''Object to process key presses.'''

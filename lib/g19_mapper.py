@@ -1,9 +1,16 @@
-# from g19_receivers import G19Receiver
-# from g19 import *
-from g19_key_codes import Key
-from g19_receivers import *
+#!/usr/bin/env python
+
+
+# from .g19_receivers import G19Receiver
+# from .g19 import *
+from .g19_key_codes import Key
+from .g19_receivers import *
 
 import virtkey
+from .logutil import get_logger
+
+log = get_logger(__name__)
+
 
 class G19Mapper():
     def __init__(self, lg19):
